@@ -2,6 +2,16 @@
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
+
+  workflow_run:
+    workflows: ["Hot News Crawler"]  # 监听的工作流名称
+    types:
+      - completed  # 当工作流完成时触发（无论成功或失败）
+      # 也可以使用更具体的状态：
+      # - requested（请求时）
+      # - in_progress（进行中）
+      # - completed（完成时）
+
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
